@@ -6,6 +6,61 @@ var app = express();
 app.use(morgan('combined'));
 
 
+var content = {
+    title:'article-one |V.PREETHI',
+    heading: 'Article one',
+    date: 'AUGUST 25, 2017',
+    content:`
+     <p>
+                this is the content for my first article.
+                i made this article one today.
+                and i am very happy.
+            
+              </p>  
+              <p>
+                 today is a holiday.
+              </p>
+    `
+};
+var htmlTemplate=`
+        <html> 
+        <head>
+               <title>
+                    article-one|V.PREETHI
+               </title>
+               <meta name="viewport" content="width=device-width, initial-scale=1"/>
+               <link href="/ui/style.css" rel="stylesheet" />
+           </head>
+           <body>
+               <div class="container">
+                    <div>
+                       <a href="/">home</a>
+                    </div>
+                    <hr>
+                       <h3>
+                         Article one
+                       </h3>
+                    <div>
+                         AUGUST 25,2017
+                    </div>
+                    <div>
+                      <p>
+                        this is the content for my first article.
+                        i made this article one today.
+                        and i am very happy.
+                    
+                      </p>  
+                      <p>
+                         today is a holiday.
+                      </p>
+                     </div>
+                  
+                 </div>
+           </body>
+            
+        </html>
+`;
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
