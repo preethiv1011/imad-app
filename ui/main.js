@@ -19,18 +19,28 @@ img.onclick = function() {
 };
 
 // counter code
-var button = document.getElementById('counter');
-var counter =0;
+var button = document.getElementById('counter');var counter =0;
+
 button.onclick = function()  {
     
     //make a request to the counter end point
+    var request= new XMLhttprequest();
+    
     
     //capture the response and store it in a variable
+     request.onreadystatechange = function() {
+         if(request.readystate === XMLhttprequest.DONE){
+             //TAKE SOME ACTION
+             if(reuest.status == 200){
+                var counter = request.responseText ;
+                var span = document.getElementById('count');
+                span.innerHTML = counter.toString();
     
-    //render the variable in the correct span
+             }
+              
+         }
+        //not done yet 
+     };
     
-    counter = counter + 1;
-    var span = document.getElementById('count');
-    span.innerHTML = counter.toString();
     
 };
